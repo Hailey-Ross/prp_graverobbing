@@ -2,21 +2,23 @@
 Adds the ability to rob gravestones in RedM.
 
 **Dependencies**
-Vorp-Core
-Vorp-Character
-Vorp-Inputs
+[Vorp-Core](https://github.com/VORPCORE/vorp-core-lua)
+[Vorp-Character](https://github.com/VORPCORE/VORP-Character)
+[Vorp-Inputs](https://github.com/VORPCORE/VORP-Inputs)
 
 **Instructions**
 
 - Extract download into your resources folder
-- Start the resource in your server.cfg
+- Add the resource in your server.cfg
 
-
+- Rewards available
+```
   "oldbuckle",
   "oldwatch",
   "goldring",
   "goldtooth",
   "oldcoin",
   "robbingkit"
+```
   
 - In-game, use a "robbingkit" near a gravestone to rob it

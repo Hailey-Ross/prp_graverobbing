@@ -2,9 +2,9 @@
 Adds the ability to rob gravestones in RedM.
 
 **Dependencies**
-[Vorp-Core](https://github.com/VORPCORE/vorp-core-lua)
-[Vorp-Character](https://github.com/VORPCORE/VORP-Character)
-[Vorp-Inputs](https://github.com/VORPCORE/VORP-Inputs)
+- [Vorp-Core](https://github.com/VORPCORE/vorp-core-lua)
+- [Vorp-Character](https://github.com/VORPCORE/VORP-Character)
+- [Vorp-Inputs](https://github.com/VORPCORE/VORP-Inputs)
 
 **Instructions**
 

@@ -11,7 +11,7 @@ Adds the ability to rob gravestones in RedM.
 - Extract download into your resources folder
 - Add the resource in your server.cfg
 
-- Rewards available
+- Run SQL File to add following items to DB
 ```
   "oldbuckle",
   "oldwatch",

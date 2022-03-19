@@ -14,7 +14,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 		if gravestone then
 			local chance = math.random(1,100)
 			local loot = math.random(1,420)
-			if chance >= 64 then
+			if chance >= 55 then
 
 				StartAnimation('script@mech@treasure_hunting@grab',0,'PBL_GRAB_01',0,1,true,20000)
 				FreezeEntityPosition(PlayerPedId(),true) -- freeze person
@@ -28,26 +28,27 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 				TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 10000, true, false, false, false)
 	
 				--exports['progressBars']:startUI(10000, "Searching grave...")
-				TriggerEvent("vorp:TipBottom", "Searching Grave. . .", 8000) -- from client side
+				TriggerEvent("vorp:TipBottom", "You begin searching the grave. . .", 8000) -- from client side
 
 				Wait(9000)
 
 				ClearPedTasks(PlayerPedId())
 				FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 				
-				if loot >= 300 then
-					TriggerServerEvent("wcrp:graverobbingreward")
-					TriggerEvent("vorp:TipBottom", "You find a few valuables on the rotting corpse", 5000) -- from client side
-				else
+				TriggerServerEvent("wcrp:graverobbingreward3")
+				--[[if loot >= 300 then
 					TriggerServerEvent("wcrp:graverobbingreward2")
 					TriggerEvent("vorp:TipBottom", "You find many valuables on the rotting corpse", 5000) -- from client side
-				end
+				else
+					TriggerServerEvent("wcrp:graverobbingreward")
+					TriggerEvent("vorp:TipBottom", "You find a few valuables on the rotting corpse", 5000) -- from client side
+				end]]
 			else
 				StartAnimation('script@mech@treasure_hunting@nothing',0,'PBL_NOTHING_01',0,1,true,10000)
 				FreezeEntityPosition(PlayerPedId(),true) -- freeze person
 
 				--exports['progressBars']:startUI(20000, "Digging grave...")
-				TriggerEvent("vorp:TipBottom", "Digging up Grave. . .", 8000) -- from client side
+				TriggerEvent("vorp:TipBottom", "I wonder what\'s in this grave..?", 8000) -- from client side
 				--exports["syn_minigame"]:taskBar(3400,7)
 	
 				Wait(10000)
@@ -62,7 +63,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 				ClearPedTasks(PlayerPedId())
 				FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 
-				TriggerEvent('vorp:TipRight', 'You found nothing in the Grave.', 6000)
+				TriggerEvent('vorp:TipRight', 'Hmm there\'s nothing here. .', 6000)
 			end
 		end
 	end

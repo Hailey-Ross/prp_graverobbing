@@ -1,7 +1,8 @@
 local gravestones = { "p_grave06x", "p_gravedugcover01x", "p_gravefresh01x", "p_gravemarker01x", "p_gravemarker02x", "p_gravestone_srd08x", "p_gravestone01ax", "p_gravestone01x", "p_gravestone03ax", "p_gravestone03x", "p_gravestone04x",                                               -- generic | p_graveyard.rpf
 "p_gravestone05x", "p_gravestone06x", "p_gravestone07ax",  "p_gravestone07x",  "p_gravestone08ax", "p_gravestone08x", "p_gravestone09x", "p_gravestone14ax", "p_gravestone14x", "p_gravestone16ax", "p_gravestone16x",                                               -- generic | p_graveyard.rpf
 "p_gravestonebroken01x", "p_gravestonebroken02x", "p_gravestonebroken05x", "p_gravestoneclean02ax", "p_gravestoneclean02x", "p_gravestoneclean03x", "p_gravestoneclean04ax",
-"p_gravestoneclean04x", "p_gravestoneclean05ax", "p_gravestoneclean05x", "p_gravestoneclean06ax", "p_gravestoneclean06x", "p_gravestonejanedoe02x", "p_grvestne_v_02x", "p_grvestne_v_01x", "p_grvestne_v_06x" }
+"p_gravestoneclean04x", "p_gravestoneclean05ax", "p_gravestoneclean05x", "p_gravestoneclean06ax", "p_gravestoneclean06x", "p_gravestonejanedoe02x", "p_grvestne_v_02x", "p_grvestne_v_01x", "p_grvestne_v_06x", "p_grvestne_v_04x", "p_grvestne_v_07x",
+"p_grvestne_v_05x" }
 
 RegisterNetEvent('GraveRobbing:TriggerRobbery')
 AddEventHandler('GraveRobbing:TriggerRobbery', function()
@@ -19,8 +20,9 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 
 				--exports['progressBars']:startUI(20000, "Digging grave...")
 				TriggerEvent("vorp:TipBottom", "Digging up Grave. . .", 8000) -- from client side
+				--exports["syn_minigame"]:taskBar(3000,7)
 	
-				Wait(10000)
+				Wait(9000)
 
 				TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 10000, true, false, false, false)
 	
@@ -33,7 +35,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 				
 				if loot >= 200 then
 					TriggerServerEvent("wcrp:graverobbingreward")
-					TriggerEvent("vorp:TipBottom", "You find a couple valuables on the rotting corpse", 5000) -- from client side
+					TriggerEvent("vorp:TipBottom", "You find a few valuables on the rotting corpse", 5000) -- from client side
 				else
 					TriggerServerEvent("wcrp:graverobbingreward2")
 					TriggerEvent("vorp:TipBottom", "You find many valuables on the rotting corpse", 5000) -- from client side
@@ -43,6 +45,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 
 				--exports['progressBars']:startUI(20000, "Digging grave...")
 				TriggerEvent("vorp:TipBottom", "Digging up Grave. . .", 8000) -- from client side
+				--exports["syn_minigame"]:taskBar(3400,7)
 	
 				Wait(10000)
 

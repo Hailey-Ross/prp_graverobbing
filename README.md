@@ -1,6 +1,9 @@
 # prp_graverobbing
 Adds the ability to rob gravestones in RedM.
 
+*This resource is in a highly experimental stage*  
+-----------**USE AT YOUR OWN RISK.**-----------
+
 **Dependencies**
 - [Vorp-Core](https://github.com/VORPCORE/vorp-core-lua)
 - [Vorp-Character](https://github.com/VORPCORE/VORP-Character)

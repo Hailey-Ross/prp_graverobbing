@@ -20,5 +20,5 @@ Adds the ability to rob gravestones in RedM.
   "oldcoin",
   "robbingkit"
 ```
-  
+- Restart / Start your Server
 - In-game, use a "robbingkit" near a gravestone to rob it

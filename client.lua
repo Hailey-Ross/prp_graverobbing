@@ -14,43 +14,71 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 		if gravestone then
 			local chance = math.random(1,100)
 			local loot = math.random(1,420)
-			if chance >= 64 then
+			local lawnotify_chance = math.random(1,200)
+			if chance >= 50 then				
+				if lawnotify_chance <= 130 then
+					for k,v in pairs(Config.alerts) do 
+						v.blip.coords = GetEntityCoords(PlayerPedId())
+						TriggerServerEvent("syn_alert:sendalert",GetPlayers(),v.jobs,v.msg,v.blip,v.isdoctor)
+						StartAnimation('script@mech@treasure_hunting@grab',0,'PBL_GRAB_01',0,1,true,20000)
+						FreezeEntityPosition(PlayerPedId(),true) -- freeze person
 
-				StartAnimation('script@mech@treasure_hunting@grab',0,'PBL_GRAB_01',0,1,true,20000)
-				FreezeEntityPosition(PlayerPedId(),true) -- freeze person
+						TriggerEvent("vorp:TipBottom", "I wonder what\'s in this grave..?", 8000) -- from client side
 
-				TriggerEvent("vorp:TipBottom", "I wonder what\'s in this grave..?", 8000) -- from client side
+						Wait(9000)
 
-				Wait(9000)
-
-				TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 10000, true, false, false, false)
+						TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 10000, true, false, false, false)
 	
-				TriggerEvent("vorp:TipBottom", "You pick through the grave. . .", 8000) -- from client side
+						TriggerEvent("vorp:TipBottom", "You pick through the grave. . .", 8000) -- from client side
 
-				Wait(9000)
+						Wait(9000)
 
-				ClearPedTasks(PlayerPedId())
-				FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
-				
-				TriggerServerEvent("wcrp:graverobbingreward")
-			else if chance >= 2 then
-				StartAnimation('script@mech@treasure_hunting@grab',0,'PBL_GRAB_01',0,1,true,20000)
-				FreezeEntityPosition(PlayerPedId(),true) -- freeze person
+						ClearPedTasks(PlayerPedId())
+						FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
+						TriggerServerEvent("wcrp:graverobbingreward")
+					end
+				else
+					StartAnimation('script@mech@treasure_hunting@grab',0,'PBL_GRAB_01',0,1,true,20000)
+					FreezeEntityPosition(PlayerPedId(),true) -- freeze person
+
+					TriggerEvent("vorp:TipBottom", "I wonder what\'s in this grave..?", 8000) -- from client side
+
+					Wait(9000)
+
+					TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 10000, true, false, false, false)
 	
-				TriggerEvent("vorp:TipBottom", "I wonder what\'s in this grave..?", 8000) -- from client side
+					TriggerEvent("vorp:TipBottom", "You pick through the grave. . .", 8000) -- from client side
+
+					Wait(9000)
+
+					ClearPedTasks(PlayerPedId())
+					FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
+					TriggerServerEvent("wcrp:graverobbingreward")
+				end
+			else if chance == 1 then
+				if lawnotify_chance <= 144 then
+					for k,v in pairs(Config.alerts) do 
+						v.blip.coords = GetEntityCoords(PlayerPedId())
+						TriggerServerEvent("syn_alert:sendalert",GetPlayers(),v.jobs,v.msg,v.blip,v.isdoctor)
+						StartAnimation('script@mech@treasure_hunting@grab',0,'PBL_GRAB_01',0,1,true,20000)
+						FreezeEntityPosition(PlayerPedId(),true) -- freeze person
 	
-				Wait(9000)
+						TriggerEvent("vorp:TipBottom", "I wonder what\'s in this grave..?", 8000) -- from client side
 	
-				TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 10000, true, false, false, false)
+						Wait(9000)
+	
+						TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 10000, true, false, false, false)
 		
-				TriggerEvent("vorp:TipBottom", "You search the grave carefully. . .", 8000) -- from client side
+						TriggerEvent("vorp:TipBottom", "You search the grave carefully. . .", 8000) -- from client side
 	
-				Wait(9000)
+						Wait(9000)
 	
-				ClearPedTasks(PlayerPedId())
-				FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
+						ClearPedTasks(PlayerPedId())
+						FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 					
-				TriggerServerEvent("wcrp:graverobbingreward2")
+						TriggerServerEvent("wcrp:graverobbingreward2")
+					end
+				end
 			else
 				StartAnimation('script@mech@treasure_hunting@nothing',0,'PBL_NOTHING_01',0,1,true,10000)
 				FreezeEntityPosition(PlayerPedId(),true) -- freeze person
@@ -74,6 +102,16 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 	end
 end
 end)
+
+function GetPlayers()
+	local players = {}
+	for i = 0, 256 do
+		if NetworkIsPlayerActive(i) then
+			table.insert(players, GetPlayerServerId(i))
+		end
+	end
+	return players
+end
 
 -- string, int, string, bool, bool, bool, int
 function StartAnimation(animDict,flags,playbackListName,p3,p4,groundZ,time)

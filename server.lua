@@ -11,6 +11,16 @@ end)
 		TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
 end)]]
 
+function GetPlayers()
+	local players = {}
+	for i = 0, 256 do
+		if NetworkIsPlayerActive(i) then
+			table.insert(players, GetPlayerServerId(i))
+		end
+	end
+	return players
+end
+
 VorpInv.RegisterUsableItem("robbingkit", function(data)
 	local WorldTime = exports.weathersync:getTime()
 	if WorldTime.hour == 22 or WorldTime.hour == 23 or WorldTime.hour == 0 or WorldTime.hour == 1 or WorldTime.hour == 2 or WorldTime.hour == 3 or WorldTime.hour == 4 or WorldTime.hour == 5 then
@@ -18,7 +28,7 @@ VorpInv.RegisterUsableItem("robbingkit", function(data)
 		TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
 	else		 
 		TriggerClientEvent("vorp:TipBottom", data.source, Config.Daytime, 5000)
-end
+	end
 end)
 
 function keysx(table)

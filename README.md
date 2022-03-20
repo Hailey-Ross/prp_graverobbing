@@ -22,7 +22,13 @@ Adds the ability to rob gravestones in RedM.
   "goldring",
   "goldtooth",
   "oldcoin",
-  "robbingkit"
+  "robbingkit",
+  "rollingpaper",
+  "rock",
+  "pipe",
+  "beer",
+  "bone",
+  "book",
 ```
 - Restart / Start your Server
 - In-game, use a "robbingkit" near a gravestone to rob it

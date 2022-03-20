@@ -21,7 +21,7 @@ gravestones in RedM using the VORP-Framework
 - [weathersync](https://github.com/kibook/weathersync) USE LATEST. Needs Exports support.  
 - [syn_alert](https://github.com/kamelzarandah/syn_alert)
 
-##Instructions
+## Instructions
 
 - Extract download into your resources folder
 - Add the resource in your server.cfg

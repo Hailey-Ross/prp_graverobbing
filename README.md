@@ -1,16 +1,27 @@
 # prp_graverobbing
-Adds the ability to rob gravestones in RedM.
+Updated / Fork of prp_graverobbing that adds the ability to rob  
+gravestones in RedM using the VORP-Framework
 
-*This resource is in a highly experimental stage*  
------------**USE AT YOUR OWN RISK.**-----------
-
-**Dependencies**
+## Dependencies
 - [Vorp-Core](https://github.com/VORPCORE/vorp-core-lua)
 - [Vorp-Character](https://github.com/VORPCORE/VORP-Character)
 - [Vorp-Inputs](https://github.com/VORPCORE/VORP-Inputs)
-- [weathersync](https://github.com/kibook/weathersync)
+- [weathersync](https://github.com/kibook/weathersync) USE LATEST. Needs Exports support.  
+- [syn_alert](https://github.com/kamelzarandah/syn_alert)
 
-**Instructions**
+## Features
+- Added night only graverobbing
+- Added Law Alerts
+- Updated Loot List
+  - Added Good Loot
+  - Added Junk Loot
+- Added Critical Failure (Rolling a 1)
+
+## TODO
+- Add law alert for trying to graverob during day
+- Add syn_minigame support
+
+##Instructions
 
 - Extract download into your resources folder
 - Add the resource in your server.cfg

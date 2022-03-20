@@ -13,6 +13,7 @@ gravestones in RedM using the VORP-Framework
 ## TODO
 - Add law alert for graverobbing during daytime
 - Add syn_minigame support
+- Optimizations to code
 
 ## Dependencies
 - [Vorp-Core](https://github.com/VORPCORE/vorp-core-lua)

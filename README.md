@@ -1,5 +1,5 @@
 # prp_graverobbing
-Updated / Fork of prp_graverobbing that adds the ability to rob  
+Updated Fork of prp_graverobbing that adds the ability to rob  
 gravestones in RedM using the VORP-Framework
 
 ## Features

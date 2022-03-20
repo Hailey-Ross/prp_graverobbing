@@ -11,7 +11,7 @@ gravestones in RedM using the VORP-Framework
 - Added Critical Failure (Rolling a 1)
 
 ## TODO
-- Add law alert for graverobbing during daytime
+- Add law alert for attempted graverobbing during daytime
 - Add syn_minigame support
 - Optimizations to code
 

@@ -21,28 +21,6 @@ VorpInv.RegisterUsableItem("robbingkit", function(data)
 end
 end)
 
-RegisterNetEvent('wcrp:graverobbingreward')
-AddEventHandler('wcrp:graverobbingreward', function()
-    VorpInv.addItem(source, "peacockfeather", 1)
-
-    VorpInv.addItem(source, "piratecoin", 1)
-end)
-
-RegisterNetEvent('wcrp:graverobbingreward2')
-AddEventHandler('wcrp:graverobbingreward', function()
-    VorpInv.addItem(source, "oldbuckle", 1)
-
-    VorpInv.addItem(source, "oldwatch", 1)
-
-    VorpInv.addItem(source, "rubyring", 1)
-
-    VorpInv.addItem(source, "goldtooth", 1)
-
-    VorpInv.addItem(source, "peacockfeather", 1)
-
-    VorpInv.addItem(source, "piratecoin", 1)
-end)
-
 function keysx(table)
     local keys = 0
     for k,v in pairs(table) do

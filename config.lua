@@ -1,5 +1,7 @@
 Config = {}
 
+Config.Daytime = "You get the feeling this might be a bad idea right now. ."
+
 Config.Items = {
     {name = "oldbuckle", label = "Rusty Belt Buckle", chance = 10, amount = 4},
     {name = "oldwatch", label = "Tarnished Watch", chance = 10, amount = 2},

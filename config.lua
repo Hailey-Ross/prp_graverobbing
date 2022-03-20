@@ -2,6 +2,19 @@ Config = {}
 
 Config.Daytime = "You get the feeling this might be a bad idea right now. ."
 
+Config.alerts = { 
+    police = { -- job name
+        command = "alertpolice",
+        jobs = {"police","marshal"}, -- jobs the alert is sent to
+        msg = "nefarious activity has been reported near some graves", -- alert sent to the players with the job name 
+        msg2 = "someone was seen acting suspicious near the graves", -- alert sent to the players with the job name
+        isdoctor = false,
+        blip = {
+            blipsprite = 2119977580,
+            Name = 'Police Alert',
+        }
+    },
+}
 
 Config.Items = {-- Good Loot
     {name = "oldbuckle", label = "Rusty Belt Buckle", chance = 10, amount = 4},

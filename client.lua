@@ -19,15 +19,12 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 				StartAnimation('script@mech@treasure_hunting@grab',0,'PBL_GRAB_01',0,1,true,20000)
 				FreezeEntityPosition(PlayerPedId(),true) -- freeze person
 
-				--exports['progressBars']:startUI(20000, "Digging grave...")
 				TriggerEvent("vorp:TipBottom", "Digging up Grave. . .", 8000) -- from client side
-				--exports["syn_minigame"]:taskBar(3000,7)
 	
 				Wait(9000)
 
 				TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 10000, true, false, false, false)
 	
-				--exports['progressBars']:startUI(10000, "Searching grave...")
 				TriggerEvent("vorp:TipBottom", "You begin searching the grave. . .", 8000) -- from client side
 
 				Wait(9000)
@@ -36,34 +33,24 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 				FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 				
 				TriggerServerEvent("wcrp:graverobbingreward3")
-				--[[if loot >= 300 then
-					TriggerServerEvent("wcrp:graverobbingreward2")
-					TriggerEvent("vorp:TipBottom", "You find many valuables on the rotting corpse", 5000) -- from client side
-				else
-					TriggerServerEvent("wcrp:graverobbingreward")
-					TriggerEvent("vorp:TipBottom", "You find a few valuables on the rotting corpse", 5000) -- from client side
-				end]]
 			else
 				StartAnimation('script@mech@treasure_hunting@nothing',0,'PBL_NOTHING_01',0,1,true,10000)
 				FreezeEntityPosition(PlayerPedId(),true) -- freeze person
 
-				--exports['progressBars']:startUI(20000, "Digging grave...")
 				TriggerEvent("vorp:TipBottom", "I wonder what\'s in this grave..?", 8000) -- from client side
-				--exports["syn_minigame"]:taskBar(3400,7)
 	
-				Wait(10000)
-
-				TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 10000, true, false, false, false)
-	
-				--exports['progressBars']:startUI(10000, "Searching grave...")
-				TriggerEvent("vorp:TipBottom", "Searching Grave. . .", 8000) -- from client side
-
 				Wait(8000)
+
+				TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 8000, true, false, false, false)
+	
+				TriggerEvent("vorp:TipBottom", "Searching Grave. . .", 5000) -- from client side
+
+				Wait(5000)
 				
 				ClearPedTasks(PlayerPedId())
 				FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 
-				TriggerEvent('vorp:TipRight', 'Hmm there\'s nothing here. .', 6000)
+				TriggerEvent('vorp:TipRight', 'Hmm there\'s nothing here. .', 5000)
 			end
 		end
 	end

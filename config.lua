@@ -12,7 +12,6 @@ Config.alerts = {
         command = "alertpolice",
         jobs = {"police","marshal"}, -- jobs the alert is sent to
         msg = "Nefarious activity has been reported near some graves", -- alert sent to the players with the job name 
-        msg2 = "Someone was seen acting suspicious near the graves", -- alert sent for day graverobbing
         isdoctor = false,
         blip = {
             blipsprite = 2119977580,

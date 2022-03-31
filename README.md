@@ -12,6 +12,7 @@ gravestones in RedM using the VORP-Framework
   - Added Good Loot
   - Added Junk Loot
 - Added Critical Failure (Rolling a 1)
+  - Gives Junk Loot
 
 ## TODO
 - Add law alert for attempted graverobbing during daytime

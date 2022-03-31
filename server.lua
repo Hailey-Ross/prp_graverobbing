@@ -25,10 +25,10 @@ VorpInv.RegisterUsableItem("robbingkit", function(data)
 				VorpInv.subItem(data.source, "robbingkit", 1)
 				TriggerClientEvent("vorp:TipRight", data.source, Config.LostKit, 3000)
 				TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
-				print(breakchance)
+				if Config.Debug == true then print(breakchance) end
 			else
 				TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
-				print(breakchance)
+				if Config.Debug == true then print(breakchance) end
 			end
 		else
 			TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)

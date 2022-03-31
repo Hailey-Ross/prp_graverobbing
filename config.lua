@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Debug = true -- Turn on Chance Printing to Logs
+Config.Debug = false -- Turn on Chance Printing to Logs
 
 Config.Daytime = "You get the feeling this might be a bad idea right now. ."
 Config.LostKit = "You notice the kit is damaged. ."

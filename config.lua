@@ -3,6 +3,8 @@ Config = {}
 Config.Daytime = "You get the feeling this might be a bad idea right now. ."
 Config.LostKit = "You notice the kit is damaged. ."
 
+Config.DisableBreaking = false -- Set True to Disable
+
 Config.alerts = { 
     police = { -- job name
         command = "alertpolice",

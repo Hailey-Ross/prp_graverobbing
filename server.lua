@@ -20,14 +20,18 @@ VorpInv.RegisterUsableItem("robbingkit", function(data)
 	local WorldTime = exports.weathersync:getTime()
 	local breakchance = math.random(1,420)
 	if WorldTime.hour == 22 or WorldTime.hour == 23 or WorldTime.hour == 0 or WorldTime.hour == 1 or WorldTime.hour == 2 or WorldTime.hour == 3 or WorldTime.hour == 4 or WorldTime.hour == 5 then
-		if breakchance <= 100 then
-			VorpInv.subItem(data.source, "robbingkit", 1)
-			TriggerClientEvent("vorp:TipRight", data.source, Config.LostKit, 3000)
-			TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
-			print(chance)
+		if Config.DisableBreaking == false then
+			if breakchance >= 380 then
+				VorpInv.subItem(data.source, "robbingkit", 1)
+				TriggerClientEvent("vorp:TipRight", data.source, Config.LostKit, 3000)
+				TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
+				print(breakchance)
+			else
+				TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
+				print(breakchance)
+			end
 		else
 			TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
-			print(chance)
 		end
 	else		 
 		TriggerClientEvent("vorp:TipBottom", data.source, Config.Daytime, 5000)

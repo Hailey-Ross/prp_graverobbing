@@ -6,6 +6,11 @@ TriggerEvent("getCore",function(core)
     VorpCore = core
 end)
 
+--[[VorpInv.RegisterUsableItem("robbingkit", function(data)
+        VorpInv.subItem(data.source, "robbingkit", 1)
+		TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
+end)]]
+
 function GetPlayers()
 	local players = {}
 	for i = 0, 256 do
@@ -64,8 +69,10 @@ AddEventHandler('wcrp:graverobbingreward', function()
 			if canCarry and canCarry2 then
 				VorpInv.addItem(_source, reward[chance2].name, count)
 				TriggerClientEvent("vorp:TipRight", _source, "You found "..count.." "..reward[chance2].label, 3000)
+				if Config.Debug == true then print(chance2) end
 			else
 				TriggerClientEvent("vorp:TipRight", _source, "You can't carry any more "..reward[chance2].label, 3000)
+				if Config.Debug == true then print(chance2) end
 			end
 		end)
 	end) 
@@ -89,8 +96,10 @@ AddEventHandler('wcrp:graverobbingreward2', function()
 			if canCarry and canCarry2 then
 				VorpInv.addItem(_source, reward[chance2].name, count)
 				TriggerClientEvent("vorp:TipRight", _source, "You found "..count.." "..reward[chance2].label, 3000)
+				if Config.Debug == true then print(chance2) end
 			else
 				TriggerClientEvent("vorp:TipRight", _source, "You can't carry any more "..reward[chance2].label, 3000)
+				if Config.Debug == true then print(chance2) end
 			end
 		end)
 	end) 

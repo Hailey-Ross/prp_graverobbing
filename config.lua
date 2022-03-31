@@ -1,6 +1,7 @@
 Config = {}
 
 Config.Daytime = "You get the feeling this might be a bad idea right now. ."
+Config.LostKit = "You notice the kit is damaged. ."
 
 Config.alerts = { 
     police = { -- job name

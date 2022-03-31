@@ -149,6 +149,3 @@ function StartAnimation(animDict,flags,playbackListName,p3,p4,groundZ,time)
 	    	Citizen.InvokeNative(0x84EEDB2C6E650000, animScene) 
    	end) 
 end
-
---- DIG UP CHEST ( NOTE: UNCOMMENT LINES to spawn chest )
--- StartAnimation('script@mech@treasure_hunting@chest',0,'PBL_CHEST_01',0,1,true,10000)

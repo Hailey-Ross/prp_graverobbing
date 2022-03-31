@@ -5,7 +5,7 @@ gravestones in RedM using the VORP-Framework
 ## Features
 - Added night-only graverobbing
 - Added Law Alerts
-- Debug Mode added to Configs
+- Debug Mode added to Config
 - robbingkits now have a chance to break
   - Can be disabled in Config
 - Updated Loot List

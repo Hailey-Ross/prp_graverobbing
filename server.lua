@@ -6,11 +6,6 @@ TriggerEvent("getCore",function(core)
     VorpCore = core
 end)
 
---[[VorpInv.RegisterUsableItem("robbingkit", function(data)
-        VorpInv.subItem(data.source, "robbingkit", 1)
-		TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
-end)]]
-
 function GetPlayers()
 	local players = {}
 	for i = 0, 256 do
@@ -23,9 +18,17 @@ end
 
 VorpInv.RegisterUsableItem("robbingkit", function(data)
 	local WorldTime = exports.weathersync:getTime()
+	local breakchance = math.random(1,420)
 	if WorldTime.hour == 22 or WorldTime.hour == 23 or WorldTime.hour == 0 or WorldTime.hour == 1 or WorldTime.hour == 2 or WorldTime.hour == 3 or WorldTime.hour == 4 or WorldTime.hour == 5 then
-		VorpInv.subItem(data.source, "robbingkit", 1)
-		TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
+		if breakchance <= 100 then
+			VorpInv.subItem(data.source, "robbingkit", 1)
+			TriggerClientEvent("vorp:TipRight", data.source, Config.LostKit, 3000)
+			TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
+			print(chance)
+		else
+			TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
+			print(chance)
+		end
 	else		 
 		TriggerClientEvent("vorp:TipBottom", data.source, Config.Daytime, 5000)
 	end

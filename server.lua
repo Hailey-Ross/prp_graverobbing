@@ -6,11 +6,6 @@ TriggerEvent("getCore",function(core)
     VorpCore = core
 end)
 
---[[VorpInv.RegisterUsableItem("robbingkit", function(data)
-        VorpInv.subItem(data.source, "robbingkit", 1)
-		TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
-end)]]
-
 function GetPlayers()
 	local players = {}
 	for i = 0, 256 do

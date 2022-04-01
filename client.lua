@@ -35,6 +35,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 
 						ClearPedTasks(PlayerPedId())
 						FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
+						TriggerEvent("vorp:Tip", "You get the feeling someone has turned you in. . .", 8000)
 						TriggerServerEvent("wcrp:graverobbingreward")
 					end
 				else
@@ -55,7 +56,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 					FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 					TriggerServerEvent("wcrp:graverobbingreward")
 				end
-			else if chance == 1 then
+			else if chance <= 15 then
 				if lawnotify_chance <= 144 then
 					for k,v in pairs(Config.alerts) do 
 						v.blip.coords = GetEntityCoords(PlayerPedId())
@@ -75,6 +76,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 	
 						ClearPedTasks(PlayerPedId())
 						FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
+						TriggerEvent("vorp:Tip", "You get the feeling someone has turned you in. . .", 8000)
 					
 						TriggerServerEvent("wcrp:graverobbingreward2")
 					end
@@ -132,7 +134,6 @@ function StartAnimation(animDict,flags,playbackListName,p3,p4,groundZ,time)
 		Citizen.InvokeNative(0x020894BF17A02EF2, animScene, aCoord.x, aCoord.y, aCoord.z, pRot.x, pRot.y, pRot.z, 2) 
 		-- SET_ANIM_SCENE_ENTITY
 		Citizen.InvokeNative(0x8B720AD451CA2AB3, animScene, "player", player, 0)
-	    
 
 	    	-- LOAD_ANIM_SCENE
 	    	Citizen.InvokeNative(0xAF068580194D9DC7, animScene) 
@@ -144,8 +145,9 @@ function StartAnimation(animDict,flags,playbackListName,p3,p4,groundZ,time)
 	    		Citizen.Wait(tonumber(time))	
 	    	else
 	   		Citizen.Wait(10000) 
-	    	end
-
+	    	end	
+	    	
+		-- _DELETE_ANIM_SCENE
 	    	Citizen.InvokeNative(0x84EEDB2C6E650000, animScene) 
    	end) 
 end

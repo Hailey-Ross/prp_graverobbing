@@ -3,7 +3,7 @@ Config = {}
 Config.Debug = false -- Turn on Chance Printing to Logs
 
 Config.Daytime = "You get the feeling this might be a bad idea right now. ."
-Config.LostKit = "You notice the kit is damaged. ."
+Config.LostKit = "Your kit is damaged. ."
 
 Config.DisableBreaking = false -- Set True to Disable
 
@@ -12,6 +12,7 @@ Config.alerts = {
         command = "alertpolice",
         jobs = {"police","marshal"}, -- jobs the alert is sent to
         msg = "Nefarious activity has been reported near some graves", -- alert sent to the players with the job name 
+        msg2 = "Someone was seen acting suspicious near the graves", -- alert sent for day graverobbing
         isdoctor = false,
         blip = {
             blipsprite = 2119977580,

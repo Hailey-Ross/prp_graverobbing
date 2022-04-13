@@ -18,23 +18,26 @@ end
 
 VorpInv.RegisterUsableItem("robbingkit", function(data)
 	local WorldTime = exports.weathersync:getTime()
-	local maxchance = 420
+	local maxchance = 210
 	local minchance = 1
-	local breakchance = math.random(minchance,maxchance)
+	local breakroll = math.random(minchance,maxchance)
+	local breakroll2 = math.random(minchance,maxchance)
 	if WorldTime.hour == 22 or WorldTime.hour == 23 or WorldTime.hour == 0 or WorldTime.hour == 1 or WorldTime.hour == 2 or WorldTime.hour == 3 or WorldTime.hour == 4 or WorldTime.hour == 5 then
 		if Config.DisableBreaking == false then
-			if breakchance >= 355 then
+			local breakchance = breakroll + breakroll2
+			if Config.Debug == true then print(breakroll.." + "..breakroll2) end
+			if breakchance >= 365 then
 				VorpInv.subItem(data.source, "robbingkit", 1)
 				TriggerClientEvent("vorp:TipRight", data.source, Config.LostKit, 3000)
 				TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
-				if Config.Debug == true then print("Kit broken, Rolled: "..breakchance.."/"..maxchance) end
+				if Config.Debug == true then print("Kit Broken: Rolled "..breakchance.."/"..maxchance) end
 			else
 				TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
 				if Config.Debug == true then print("Kit did not break, Rolled: "..breakchance.."/"..maxchance) end
 			end
 		else
 			TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
-			if Config.Debug == true then print("Kit cannot break Config Disable Breaking TRUE") end
+			if Config.Debug == true then print("Kit cannot be broken. Config Disable Breaking is TRUE") end
 		end
 	else		 
 		TriggerClientEvent("vorp:TipBottom", data.source, Config.Daytime, 5000)
@@ -45,7 +48,7 @@ end)
 function keysx(table)
     local keys = 0
     for k,v in pairs(table) do
-       keys = keys + 1
+		keys = keys + 1
     end
     return keys
 end

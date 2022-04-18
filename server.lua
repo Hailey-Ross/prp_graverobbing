@@ -6,7 +6,7 @@ TriggerEvent("getCore",function(core)
     VorpCore = core
 end)
 
-function GetPlayers()
+--[[function GetPlayers()
 	local players = {}
 	for i = 0, 256 do
 		if NetworkIsPlayerActive(i) then
@@ -14,7 +14,7 @@ function GetPlayers()
 		end
 	end
 	return players
-end
+end]]
 
 VorpInv.RegisterUsableItem("robbingkit", function(data)
 	local WorldTime = exports.weathersync:getTime()

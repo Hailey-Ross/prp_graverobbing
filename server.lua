@@ -6,40 +6,41 @@ TriggerEvent("getCore",function(core)
     VorpCore = core
 end)
 
---[[function GetPlayers()
+function GetPlayers()
 	local players = {}
 	for i = 0, 256 do
 		if NetworkIsPlayerActive(i) then
-			table.insert(players, GetPlayerServerId(i))
+		table.insert(players, GetPlayerServerId(i))
 		end
 	end
 	return players
-end]]
+end
 
 VorpInv.RegisterUsableItem("robbingkit", function(data)
 	local WorldTime = exports.weathersync:getTime()
 	local maxchance = 210
 	local minchance = 1
+	local maxchancex = maxchance + maxchance
 	local breakroll = math.random(minchance,maxchance)
 	local breakroll2 = math.random(minchance,maxchance)
 	if WorldTime.hour == 22 or WorldTime.hour == 23 or WorldTime.hour == 0 or WorldTime.hour == 1 or WorldTime.hour == 2 or WorldTime.hour == 3 or WorldTime.hour == 4 or WorldTime.hour == 5 then
 		if Config.DisableBreaking == false then
 			local breakchance = breakroll + breakroll2
 			if Config.Debug == true then print(breakroll.." + "..breakroll2) end
-			if breakchance >= 365 then
+			if breakchance >= 310 then
 				VorpInv.subItem(data.source, "robbingkit", 1)
 				TriggerClientEvent("vorp:TipRight", data.source, Config.LostKit, 3000)
 				TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
-				if Config.Debug == true then print("Kit Broken: Rolled "..breakchance.."/"..maxchance) end
+				if Config.Debug == true then print("Kit Broken: Rolled "..breakchance.."/"..maxchancex) end
 			else
 				TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
-				if Config.Debug == true then print("Kit did not break, Rolled: "..breakchance.."/"..maxchance) end
+				if Config.Debug == true then print("Kit did not break, Rolled: "..breakchance.."/"..maxchancex) end
 			end
 		else
 			TriggerClientEvent('GraveRobbing:TriggerRobbery', data.source)
 			if Config.Debug == true then print("Kit cannot be broken. Config Disable Breaking is TRUE") end
 		end
-	else		 
+	else
 		TriggerClientEvent("vorp:TipBottom", data.source, Config.Daytime, 5000)
 		if Config.Debug == true then print("Attempted daytime Graverobbing") end
 	end

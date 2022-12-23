@@ -8,7 +8,7 @@ Config.RequiredOnlineJob = "police"
 Config.NoLawmenOnline = "You get the feeling you cannot do this right now. ."
 
 Config.Debug = false -- Turn on Chance Printing to Logs
-Config.Logging = true -- Turn on Log Manager
+Config.Logging = false -- Turn on Log Manager
 Config.DisableBreaking = false -- Set True to Disable
 
 Config.Daytime = "You get the feeling this might be a bad idea right now. ."

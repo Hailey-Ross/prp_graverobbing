@@ -1,5 +1,7 @@
 VorpInv = exports.vorp_inventory:vorp_inventoryApi()
-math.randomseed(os.time() + math.random(Config.SeedFloor,Config.SeedCeiling))
+local Floor = Config.SeedFloor
+local Ceiling = Config.SeedCeiling
+math.randomseed(os.time() + math.random(Floor,Ceiling))
 
 local VorpCore = {}
 
@@ -28,7 +30,7 @@ VorpInv.RegisterUsableItem("robbingkit", function(data)
 	local players = VorpCore.GetPlayers()
 	local jobcount = 0
 
-	for i, player in ipairs(players) do
+	for i, player in pairs(players) do
   		local playerJob = VorpCore.GetPlayerJob(player)
   		if playerJob == targetJob then jobcount = jobcount + 1 end
 	end

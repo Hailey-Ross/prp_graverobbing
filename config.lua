@@ -1,7 +1,7 @@
 Config = {}
 
-Config.SeedFloor = 1
-Config.SeedCeiling = 101
+Config.SeedFloor = 0
+Config.SeedCeiling = 9001
 
 Config.RequireLawmen = false
 Config.RequiredOnlineJob = "police"

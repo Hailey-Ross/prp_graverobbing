@@ -4,6 +4,19 @@ local gravestones = { "p_grave06x", "p_gravedugcover01x", "p_gravefresh01x", "p_
 "p_gravestoneclean04x", "p_gravestoneclean05ax", "p_gravestoneclean05x", "p_gravestoneclean06ax", "p_gravestoneclean06x", "p_gravestonejanedoe02x", "p_grvestne_v_02x", "p_grvestne_v_01x", "p_grvestne_v_06x", "p_grvestne_v_04x", "p_grvestne_v_07x",
 "p_grvestne_v_05x" }
 
+local Floor = Config.SeedFloor
+local Ceiling = Config.SeedCeiling
+local MasterCeiling = Ceiling + Ceiling
+local testsuccess, result = pcall(os.time)
+
+if testsuccess then
+ 	math.randomseed(os.time() + math.random(Floor,Ceiling))
+		if Config.Debug == true then print("os.time PASSED Test.") end
+else
+ 	math.randomseed(math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling))
+		if Config.Debug == true then print("os.time FAILED Test. Result: " .. result) end
+end
+
 RegisterNetEvent('GraveRobbing:TriggerRobbery')
 AddEventHandler('GraveRobbing:TriggerRobbery', function()
 	local x, y, z = table.unpack(GetEntityCoords(PlayerPedId()))

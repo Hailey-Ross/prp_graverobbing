@@ -4,6 +4,9 @@ Config.SeedFloor = 1
 Config.SeedCeiling = 101
 
 Config.RequireLawmen = false
+Config.RequiredJob1 = "police"
+Config.RequiredJob2 = "marshal"
+
 Config.Debug = false-- Turn on Chance Printing to Logs
 Config.Logging = true-- Turn on Log Manager
 Config.DisableBreaking = false -- Set True to Disable

@@ -1,5 +1,6 @@
 Config = {}
 
+Config.RequireLawmen = false
 Config.Debug = false-- Turn on Chance Printing to Logs
 Config.Logging = true-- Turn on Log Manager
 Config.DisableBreaking = false -- Set True to Disable

@@ -4,7 +4,7 @@ Config.SeedFloor = 1
 Config.SeedCeiling = 101
 
 Config.RequireLawmen = false
-Config.RequiredJob = "police"
+Config.RequiredOnlineJob = "police"
 
 Config.Debug = false-- Turn on Chance Printing to Logs
 Config.Logging = true-- Turn on Log Manager

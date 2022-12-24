@@ -1,5 +1,5 @@
 VorpInv = exports.vorp_inventory:vorp_inventoryApi()
-local Debug = Config.debug
+local Debug = Config.Debug
 local Floor = Config.SeedFloor
 local Ceiling = Config.SeedCeiling
 local MasterCeiling = Ceiling + Ceiling  --Create maximum

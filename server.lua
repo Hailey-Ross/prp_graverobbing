@@ -40,7 +40,7 @@ VorpInv.RegisterUsableItem("robbingkit", function(data)
   		if playerJob == targetJob then jobcount = jobcount + 1 end
 	end
 		
-	if Config.RequireLawmen == true and jobcount <= 1 then --Main Loop for Requiring Lawmen
+	if Config.RequireLawmen == true and jobcount <= Config.MinLawReq then --Main Loop for Requiring Lawmen
 	if WorldTime.hour == 22 or WorldTime.hour == 23 or WorldTime.hour == 0 or WorldTime.hour == 1 or WorldTime.hour == 2 or WorldTime.hour == 3 or WorldTime.hour == 4 or WorldTime.hour == 5 then
 		if Config.DisableBreaking == false then
 			local breakchance = breakroll + breakroll2

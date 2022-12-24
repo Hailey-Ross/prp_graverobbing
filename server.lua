@@ -32,7 +32,7 @@ VorpInv.RegisterUsableItem("robbingkit", function(data)
 	local breakroll = math.random(minchance,maxchance)
 	local breakroll2 = math.random(minchance,maxchance)
 	local targetJob = Config.RequiredOnlineJob
-	local players = VorpCore.GetPlayers()
+	--local players = VorpCore.GetPlayers()  --redundant
 	local jobcount = 0
 
 	for i, player in pairs(players) do

@@ -5,6 +5,7 @@ Config.SeedCeiling = 9001
 
 Config.RequireLawmen = false
 Config.RequiredOnlineJob = "police"
+Config.MinLawReq = 1 -- Minimum number of Lawmen Required online
 Config.NoLawmenOnline = "You get the feeling you cannot do this right now. ."
 
 Config.Debug = false -- Turn on Chance Printing to Logs

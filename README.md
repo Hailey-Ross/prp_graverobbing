@@ -13,6 +13,8 @@ gravestones in [RedM](https://redm.gg/) using the [VORP-Framework](https://githu
   - Added Junk Loot
 - Added Critical Failure (Rolling a 1)
   - Gives Junk Loot
+- Improved RNG Seeding
+- Enable / Disable Law Required Mode
 
 ## TODO
 - Add syn_minigame support

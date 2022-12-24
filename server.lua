@@ -1,12 +1,31 @@
 VorpInv = exports.vorp_inventory:vorp_inventoryApi()
+local Debug = Config.Debug
 local Floor = Config.SeedFloor
 local Ceiling = Config.SeedCeiling
-local MasterCeiling = Ceiling + Ceiling
-local testsuccess, result = pcall(os.time)
+local MasterCeiling = Ceiling + Ceiling  --Create maximum
+local testsuccess, result = pcall(os.time) --Time Module Test Call
+local ctestsuccess, crypto = pcall(require, "crypto") --Crypto Module Test Call
+local seed = math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling) -- Default Seed Generation ALL BUILT IN LUA
+local time --Empty Time Variable
 
-math.randomseed(testsuccess and os.time() + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling) or math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling))
-if Config.Debug == true then print(testsuccess and "os.time PASSED Test." or "os.time FAILED Test. Result: " .. result) end
-
+if ctestsuccess and testsuccess then --IF we have Crypto and Time pass their tests, use both for Seed Generation
+	time = os.time() % 100000
+	seed = crypto.rng() * (Ceiling - Floor) + time + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling)
+        math.randomseed(seed)
+            if Debug == true then print("Crypto Module PASSED Test."); print("os.time PASSED Test. Result: " .. result); print("Resulting SEED: " ..seed) end
+elseif ctestsuccess then --IF only crypto passes, use that for seed generation
+	seed = crypto.rng() * (Ceiling - Floor) + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling)
+        math.randomseed(seed)
+            if Debug == true then print("Crypto Module PASSED Test."); print("os.time FAILED Test. Result: " .. result); print("Resulting SEED: " ..seed) end
+elseif testsuccess then --IF only time passes its test then use that for seed generation
+	time = os.time() % 100000
+	seed = time + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling)
+        math.randomseed(seed)
+            if Debug == true then print("Crypto Module FAILED Test."); print("os.time PASSED Test. Result: " .. result); print("Resulting SEED: " ..seed) end
+else --IF All else fails then fall back on default seed generation, pure psuedo-random gneration
+        math.randomseed(seed)
+	    if Debug == true then print("Crypto Module FAILED Test."); print("os.time FAILED Test. Result: " .. result); print("Resulting SEED: " ..seed) end
+end
 
 local VorpCore = {}
 

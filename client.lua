@@ -4,13 +4,45 @@ local gravestones = { "p_grave06x", "p_gravedugcover01x", "p_gravefresh01x", "p_
 "p_gravestoneclean04x", "p_gravestoneclean05ax", "p_gravestoneclean05x", "p_gravestoneclean06ax", "p_gravestoneclean06x", "p_gravestonejanedoe02x", "p_grvestne_v_02x", "p_grvestne_v_01x", "p_grvestne_v_06x", "p_grvestne_v_04x", "p_grvestne_v_07x",
 "p_grvestne_v_05x" }
 
+local Debug = Config.Debug
 local Floor = Config.SeedFloor
 local Ceiling = Config.SeedCeiling
 local MasterCeiling = Ceiling + Ceiling
 local testsuccess, result = pcall(os.time)
+local ctestsuccess, crypto = pcall(require, "crypto")
+local seed
+local time
 
-math.randomseed(testsuccess and os.time() + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling) or math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling))
-if Config.Debug == true then print(testsuccess and "os.time PASSED Test." or "os.time FAILED Test. Result: " .. result) end
+if ctestsuccess and testsuccess then
+	time = os.time() % 100000
+	seed = crypto.rng() * (Ceiling - Floor) + time + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling)
+        math.randomseed(seed)
+            if Debug == true then print("Crypto Module PASSED Test.") end
+	    if Debug == true then print("os.time PASSED Test. Result: " .. result) end
+	    if Debug == true then print("Resulting SEED: " ..seed) end
+elseif ctestsuccess then
+	seed = crypto.rng() * (Ceiling - Floor) + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling)
+        math.randomseed(seed)
+            if Debug == true then print("Crypto Module PASSED Test.") end
+	    if Debug == true then print("os.time FAILED Test. Result: " .. result) end
+	    if Debug == true then print("Resulting SEED: " ..seed) end
+elseif testsuccess then
+	time = os.time() % 100000
+	seed = time + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling)
+        math.randomseed(seed)
+            if Debug == true then print("Crypto Module FAILED Test.") end
+            if Debug == true then print("os.time PASSED Test. Result: " .. result) end
+	    if Debug == true then print("Resulting SEED: " ..seed) end
+else
+	seed = math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling)
+        math.randomseed(seed)
+	    if Debug == true then print("Crypto Module FAILED Test.") end
+            if Debug == true then print("os.time FAILED Test. Result: " .. result) end
+	    if Debug == true then print("Resulting SEED: " ..seed) end
+end
+
+--math.randomseed(testsuccess and os.time() + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling) or math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(Floor,MasterCeiling))
+--if Config.Debug == true then print(testsuccess and "os.time PASSED Test." or "os.time FAILED Test. Result: " .. result) end
 
 RegisterNetEvent('GraveRobbing:TriggerRobbery')
 AddEventHandler('GraveRobbing:TriggerRobbery', function()

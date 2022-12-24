@@ -1,6 +1,6 @@
 # prp_graverobbing
 Updated Fork of prp_graverobbing that adds the ability to rob  
-gravestones in RedM using the [VORP-Framework](https://github.com/VORPCORE)
+gravestones in [RedM](https://redm.gg/) using the [VORP-Framework](https://github.com/VORPCORE)
 
 ## Features
 - Added night-only graverobbing

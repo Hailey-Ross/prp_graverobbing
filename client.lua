@@ -7,10 +7,10 @@ local gravestones = { "p_grave06x", "p_gravedugcover01x", "p_gravefresh01x", "p_
 local Debug = Config.Debug
 local Floor = Config.SeedFloor
 local Ceiling = Config.SeedCeiling
-local MasterCeiling = Ceiling + Ceiling  --Create maximum
+local MasterCeiling = Ceiling + Ceiling  --Create maximum ceiling from math(s)
 local testsuccess, result = pcall(os.time) --Time Module Test Call
 local ctestsuccess, crypto = pcall(require, "crypto") --Crypto Module Test Call
-local seed = math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(-MasterCeiling,MasterCeiling) -- Default Seed Generation ALL BUILT IN LUA
+local seed = math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,2) - math.random(-MasterCeiling,MasterCeiling) -- Default Seed Generation ALL BUILT IN LUA
 local time --set Time Variable
 
 if ctestsuccess and testsuccess then --IF we have both required modules pass their tests, use both for Seed Generation

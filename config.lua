@@ -3,8 +3,8 @@ Config = {}
 Config.Debug = false -- Turn on Chance Printing to Logs
 Config.Logging = false -- Turn on Log Manager
 
-Config.SeedFloor = 0        --Lowest Number Generated for RNG Seeding
-Config.SeedCeiling = 9001   --Highest Number Generated for RNG Seeding
+Config.SeedFloor = 1        --Lowest Number Generated for RNG Seeding
+Config.SeedCeiling = 40000   --Highest Number Generated for RNG Seeding
 
 Config.RequireLawmen = false   --Require Lawmen to be awake for GraveRobbing?
 Config.RequiredOnlineJob = "police"   --Job name Required to be awake for Graverobbing

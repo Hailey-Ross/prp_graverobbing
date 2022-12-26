@@ -60,7 +60,7 @@ VorpInv.RegisterUsableItem("robbingkit", function(data)
   		if playerJob == targetJob then jobcount = jobcount + 1 end
 	end
 		
-	if Config.RequireLawmen == true and jobcount <= Config.MinLawReq then --Main Loop for Requiring Lawmen
+if Config.RequireLawmen == true and jobcount <= Config.MinLawReq then --Main Loop for Requiring Lawmen
 	if WorldTime.hour == 22 or WorldTime.hour == 23 or WorldTime.hour == 0 or WorldTime.hour == 1 or WorldTime.hour == 2 or WorldTime.hour == 3 or WorldTime.hour == 4 or WorldTime.hour == 5 then
 		if Config.DisableBreaking == false then
 			local breakchance = breakroll + breakroll2
@@ -82,8 +82,8 @@ VorpInv.RegisterUsableItem("robbingkit", function(data)
 		TriggerClientEvent("vorp:TipBottom", data.source, Config.Daytime, 5000)
 		if Config.Debug == true then print("Attempted daytime Graverobbing") end
 	end
-	elseif Config.RequireLawmen == False then -- Main Loop not requiring Lawmen
-			if WorldTime.hour == 22 or WorldTime.hour == 23 or WorldTime.hour == 0 or WorldTime.hour == 1 or WorldTime.hour == 2 or WorldTime.hour == 3 or WorldTime.hour == 4 or WorldTime.hour == 5 then
+elseif Config.RequireLawmen == false then -- Main Loop not requiring Lawmen
+	if WorldTime.hour == 22 or WorldTime.hour == 23 or WorldTime.hour == 0 or WorldTime.hour == 1 or WorldTime.hour == 2 or WorldTime.hour == 3 or WorldTime.hour == 4 or WorldTime.hour == 5 then
 		if Config.DisableBreaking == false then
 			local breakchance = breakroll + breakroll2
 			if Config.Debug == true then print(breakroll.." + "..breakroll2) end
@@ -105,10 +105,10 @@ VorpInv.RegisterUsableItem("robbingkit", function(data)
 		if Config.Debug == true then print("Attempted daytime Graverobbing") end
 		end
 	end
-	else
-		TriggerClientEvent("vorp:TipBottom", data.source, Config.NoLawmenOnline, 5000)
-		if Config.Debug == true then print("Attempted graverobbing without Lawmen awake") end
-		end
+else
+	TriggerClientEvent("vorp:TipBottom", data.source, Config.NoLawmenOnline, 5000)
+	if Config.Debug == true then print("Attempted graverobbing without Lawmen awake") end
+end
 end)
 
 function keysx(table)

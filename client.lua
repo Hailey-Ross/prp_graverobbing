@@ -4,6 +4,7 @@ local gravestones = { "p_grave06x", "p_gravedugcover01x", "p_gravefresh01x", "p_
 "p_gravestoneclean04x", "p_gravestoneclean05ax", "p_gravestoneclean05x", "p_gravestoneclean06ax", "p_gravestoneclean06x", "p_gravestonejanedoe02x", "p_grvestne_v_02x", "p_grvestne_v_01x", "p_grvestne_v_06x", "p_grvestne_v_04x", "p_grvestne_v_07x",
 "p_grvestne_v_05x" }
 
+local Logging = Config.Logging
 local Debug = Config.Debug
 local Floor = Config.SeedFloor
 local Ceiling = Config.SeedCeiling
@@ -46,8 +47,8 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 			local lawnotify_chance = math.random(1,200) --law_chance
 			local zone_hash = Citizen.InvokeNative(0x43AD8FC02B429D33, pedCoords ,-1)
 			--local zone_name = GetCurrentLocName()
-			if Config.Debug == true then print('Hash: '..zone_hash) end
-			if Config.Logging == true then exports.logmanager:log{message = "Graverobbing attempted | Coords:", coords = GetEntityCoords(PlayerPedId())} end
+			if Debug == true then print('Hash: '..zone_hash) end
+			if Logging == true then exports.logmanager:log{message = "Graverobbing attempted | Coords:", coords = GetEntityCoords(PlayerPedId())} end
 			if chance >= 50 then
 				if lawnotify_chance >= 130 then
 					for k,v in pairs(Config.alerts) do 
@@ -70,7 +71,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 						FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 						TriggerEvent("vorp:Tip", "You get the feeling someone has turned you in. . .", 8000)
 						TriggerServerEvent("wcrp:graverobbingreward")
-						if Config.Logging == true then exports.logmanager:log{message = "Graverobbing Success, Police Alerted"} end
+						if Logging == true then exports.logmanager:log{message = "Graverobbing Success, Police Alerted"} end
 					end
 				else
 					StartAnimation('script@mech@treasure_hunting@grab',0,'PBL_GRAB_01',0,1,true,20000)
@@ -89,7 +90,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 					ClearPedTasks(PlayerPedId())
 					FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 					TriggerServerEvent("wcrp:graverobbingreward")
-					if Config.Logging == true then exports.logmanager:log{message = "Graverobbing Success"} end
+					if Logging == true then exports.logmanager:log{message = "Graverobbing Success"} end
 				end
 			else if chance <= 15 then
 				if lawnotify_chance >= 144 then
@@ -114,7 +115,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 						TriggerEvent("vorp:Tip", "You get the feeling someone has turned you in. . .", 8000)
 					
 						TriggerServerEvent("wcrp:graverobbingreward2")
-						if Config.Logging == true then exports.logmanager:log{message = "Graverobbing Junk Items, Police Alerted"} end
+						if Logging == true then exports.logmanager:log{message = "Graverobbing Junk Items, Police Alerted"} end
 					end
 				end
 			else
@@ -135,7 +136,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 				FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 
 				TriggerEvent('vorp:TipRight', 'Hmm there\'s nothing here. .', 5000)
-				if Config.Logging == true then exports.logmanager:log{message = "Graverobbing Failure"} end
+				if Logging == true then exports.logmanager:log{message = "Graverobbing Failure"} end
 			end
 		end
 	end
@@ -212,7 +213,7 @@ function GetCurrentLocName()
 	local town_hash = Citizen.InvokeNative(0x43AD8FC02B429D33, pedCoords ,-1)
 	local hash_list = GetHashKey(v.name)
         if town_hash == hash_list then
-		if Config.Debug == true then print("Town "..v.label) end
+		if Debug == true then print("Town "..v.label) end
 		return v.label
 	--else
 		--return "Error fetching location"

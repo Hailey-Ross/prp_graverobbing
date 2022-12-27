@@ -104,11 +104,10 @@ elseif Config.RequireLawmen == false then -- Main Loop not requiring Lawmen
 		TriggerClientEvent("vorp:TipBottom", data.source, Config.Daytime, 5000)
 		if Debug == true then print("Attempted daytime Graverobbing") end
 		end
+	else
+		TriggerClientEvent("vorp:TipBottom", data.source, Config.NoLawmenOnline, 5000)
+		if Debug == true then print("Attempted graverobbing without Lawmen awake") end
 	end
-else
-	TriggerClientEvent("vorp:TipBottom", data.source, Config.NoLawmenOnline, 5000)
-	if Debug == true then print("Attempted graverobbing without Lawmen awake") end
-end
 end)
 
 function keysx(table)

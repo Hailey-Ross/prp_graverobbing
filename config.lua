@@ -3,14 +3,14 @@ Config = {}
 Config.Debug = false -- Turn on Chance Printing to Logs
 Config.Logging = false -- Turn on Log Manager
 
-Config.SeedFloor = 1        --Lowest Number Generated for RNG Seeding
+Config.SeedFloor = -40000       --Lowest Number Generated for RNG Seeding
 Config.SeedCeiling = 40000   --Highest Number Generated for RNG Seeding
 
 Config.RequireLawmen = false   --Require Lawmen to be awake for GraveRobbing?
 Config.RequiredOnlineJob = "police"   --Job name Required to be awake for Graverobbing
-Config.MinLawReq = 1 -- Minimum number of Lawmen Required online
+Config.MinLawReq = 1 -- Minimum number of Lawmen Required for graverobbing to be enabled
 Config.NoLawmenOnline = "You get the feeling you cannot do this right now. ."
-Config.DisableBreaking = false -- Set True to Disable, Disables kit breaking
+Config.DisableBreaking = false -- Set True to Disable, Disables kit breaking for Debugging
 
 Config.Daytime = "You get the feeling this might be a bad idea right now. ."
 Config.LostKit = "Your kit is damaged. ."

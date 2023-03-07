@@ -9,29 +9,7 @@ local Debug = Config.Debug
 local Floor = Config.SeedFloor
 local Ceiling = Config.SeedCeiling
 local MasterCeiling = Ceiling + Ceiling  --Create maximum ceiling from math(s)
-local testsuccess, result = pcall(os.time) --Time Module Test Call
-local ctestsuccess, crypto = pcall(require, "crypto") --Crypto Module Test Call
 local seed = math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,2) - math.random(-MasterCeiling,MasterCeiling) -- Default Seed Generation ALL BUILT IN LUA
-local time --set Time Variable
-
-if ctestsuccess and testsuccess then --IF we have both required modules pass their tests, use both for Seed Generation
-	time = os.time() % 1000
-	seed = crypto.rng() * (Ceiling - Floor) + time + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(-MasterCeiling,MasterCeiling)
-    math.randomseed(seed)
-    if Debug == true then print("Crypto Module PASSED Test." .. "os.time PASSED Test." .. "BEST Setup Detected: Using Cryptography + os.time RNG Seeding Mode" .. "Resulting SEED: " ..seed) end
-elseif ctestsuccess then --IF only crypto passes, use that for seed generation
-	seed = crypto.rng() * (Ceiling - Floor) + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(-MasterCeiling,MasterCeiling)
-	math.randomseed(seed)
-    if Debug == true then print("Crypto Module PASSED Test." .. "os.time FAILED Test." .. "Resulting SEED: " ..seed) end
-elseif testsuccess then --IF only time passes its test then use that for seed generation
-	time = os.time() % 1000
-	seed = time + math.random(Floor,Ceiling) + math.random(Floor,Ceiling) * math.random(1,3) - math.random(-MasterCeiling,MasterCeiling)
-    math.randomseed(seed)
-    if Debug == true then print("Crypto Module FAILED Test." .. "os.time PASSED Test." .. "Resulting SEED: " ..seed) end
-else --IF All else fails then fall back on default seed generation, pure psuedo-random gneration
-    math.randomseed(seed)
-	if Debug == true then print("FALLBACK Mode: Using Psuedo-Random Seed Generation" .. "Crypto Module FAILED Test." .. "os.time FAILED Test." .. "Resulting SEED: " ..seed) end
-end
 
 RegisterNetEvent('GraveRobbing:TriggerRobbery')
 AddEventHandler('GraveRobbing:TriggerRobbery', function()
@@ -41,6 +19,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 		local gravestone = DoesObjectOfTypeExistAtCoords(x, y, z, 1.0, GetHashKey(value), true)
 
 		if gravestone then
+			math.randomseed(seed)
 			local pedCoords = GetEntityCoords(PlayerPedId())
 			local chance = math.random(1,100) -- lootchance
 			local loot = math.random(1,420)  --rewardschance

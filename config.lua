@@ -89,7 +89,7 @@ Config.zones = {
     [39] = { name = 'greatPlains', label = 'Great Plains'},
     [40] = { name = 'GrizzliesEast', label = 'Grizzlies East'},
     [41] = { name = 'GrizzliesWest', label = 'Grizzlies West'},
-    [42] = { name = 'GuarmaD', label = 'GuarmaD'},
+    [42] = { name = 'GuarmaD', label = 'Guarma'},
     [43] = { name = 'Heartlands', label = 'Heartlands'},
     [44] = { name = 'HennigansStead', label = 'Hennigans Stead'},
     [45] = { name = 'Perdido', label = 'Perdido'},

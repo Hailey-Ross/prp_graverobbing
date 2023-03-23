@@ -50,7 +50,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 						FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 						TriggerEvent("vorp:Tip", "You get the feeling someone has turned you in. . .", 8000)
 						TriggerServerEvent("wcrp:graverobbingreward")
-						if Logging == true then exports.logmanager:log{message = "Graverobbing Success, Police Alerted"} end
+						--if Logging == true then exports.logmanager:log{message = "Graverobbing Success, Police Alerted"} end
 					end
 				else
 					StartAnimation('script@mech@treasure_hunting@grab',0,'PBL_GRAB_01',0,1,true,20000)
@@ -69,7 +69,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 					ClearPedTasks(PlayerPedId())
 					FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 					TriggerServerEvent("wcrp:graverobbingreward")
-					if Logging == true then exports.logmanager:log{message = "Graverobbing Success"} end
+					--if Logging == true then exports.logmanager:log{message = "Graverobbing Success"} end
 				end
 			else if chance <= 15 then
 				if lawnotify_chance >= 144 then
@@ -94,7 +94,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 						TriggerEvent("vorp:Tip", "You get the feeling someone has turned you in. . .", 8000)
 					
 						TriggerServerEvent("wcrp:graverobbingreward2")
-						if Logging == true then exports.logmanager:log{message = "Graverobbing Junk Items, Police Alerted"} end
+						--if Logging == true then exports.logmanager:log{message = "Graverobbing Junk Items, Police Alerted"} end
 					end
 				end
 			else
@@ -115,7 +115,7 @@ AddEventHandler('GraveRobbing:TriggerRobbery', function()
 				FreezeEntityPosition(PlayerPedId(),false) -- Unfreeze person
 
 				TriggerEvent('vorp:TipRight', 'Hmm there\'s nothing here. .', 5000)
-				if Logging == true then exports.logmanager:log{message = "Graverobbing Failure"} end
+				--if Logging == true then exports.logmanager:log{message = "Graverobbing Failure"} end
 			end
 		end
 	end

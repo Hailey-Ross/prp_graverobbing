@@ -1,6 +1,6 @@
 # prp_graverobbing
 Updated Fork of prp_graverobbing that adds the ability to rob  
-gravestones in RedM using the VORP-Framework
+gravestones in [RedM](https://redm.gg/) using the [VORP-Framework](https://github.com/VORPCORE)
 
 ## Features
 - Added night-only graverobbing
@@ -13,9 +13,10 @@ gravestones in RedM using the VORP-Framework
   - Added Junk Loot
 - Added Critical Failure (Rolling a 1)
   - Gives Junk Loot
+- Improved RNG Seeding
+- Enable / Disable Law Required Mode
 
 ## TODO
-- Add law alert for attempted graverobbing during daytime
 - Add syn_minigame support
 - Optimizations to code
 
